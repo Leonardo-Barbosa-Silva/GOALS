@@ -11,6 +11,10 @@ module.exports = {
     // @route   POST  /v1/api/goals/create
     // @acess   Private
     setGoal: async(req, res, next) => {
+        if (!req.body.text) {
+            return res.status(400).json({ error: 'Please add some text field' })
+        }
+
         res.status(201).json({ message: 'POST Goal' })
     },
 
