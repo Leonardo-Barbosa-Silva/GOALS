@@ -37,13 +37,13 @@ module.exports = {
         const goal = await Goals.findById(id)
 
         if (!goal) {
-            return res.status(400).json({ error: 'Goal not found by ID' })
+            return res.status(400).json({ error: 'Goal not found' })
         }
 
         const user = await Users.findById(req.user.id)
 
         if (!user) {
-            return res.status(400).json({ error: 'User not found please try to Sign In again!' })
+            return res.status(400).json({ error: 'User not found please try to sign in again' })
         }
 
         if (goal.user.toString() !== user.id) {
@@ -64,7 +64,7 @@ module.exports = {
         const goal = await Goals.findById(id)
 
         if (!goal) {
-            return res.status(400).json({ error: 'Goal not found by ID' })
+            return res.status(400).json({ error: 'Goal not found' })
         }
 
         const user = await Users.findById(req.user.id)
@@ -74,7 +74,7 @@ module.exports = {
         }
 
         if (goal.user.toString() !== user.id) {
-            return res.status(401).json({ error: 'User not authorized to update this goal' })
+            return res.status(401).json({ error: 'User not authorized to delete this goal' })
         }
 
         const deletedGoal = await Goals.findByIdAndDelete(id)
