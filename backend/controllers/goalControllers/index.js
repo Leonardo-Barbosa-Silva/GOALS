@@ -20,6 +20,12 @@ module.exports = {
             return res.status(400).json({ error: 'Please add some text field' })
         }
 
+        const user = await Users.findById(req.user.id)
+
+        if (!user) {
+            return res.status(400).json({ error: 'User not found please try to sign in again' })
+        }
+
         const createdGoal = await Goals.create({
             user: req.user.id,
             text: req.body.text

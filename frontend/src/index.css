@@ -59,7 +59,7 @@ h3 {
 }
 
 .header ul li {
-  margin-left: 20px;
+  margin: 0 20px;
 }
 
 .header ul li a {
@@ -149,7 +149,6 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all ease .2s;
 }
 
 .btn svg {
@@ -168,10 +167,6 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
-}
-
-.btn:active {
-  opacity: .2;
 }
 
 .loadingSpinnerContainer {
